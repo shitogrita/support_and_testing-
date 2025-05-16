@@ -1,79 +1,76 @@
-## Applications
+## Приложения
 
-### 1. Fibonacci
+### 1. Фибоначчи
 
-**Task**: Calculate Fibonacci numbers.
+**Задача**: вычисление чисел Фибоначчи.
 
-**Usage**:
+**Использование**:
 
 ```bash
-# Run the console application
+# Запуск консольного приложения
 dotnet run --project Fibonacci
 ```
 
-**Example**:
+**Пример**:
 
 ```
-Enter n: 10
-Fibonacci F(10) = 55
+Введите n: 10
+Число Фибоначчи F(10) = 55
 ```
 
-**Debugging Techniques in Visual Studio**:
+**Методы отладки в Visual Studio**:
 
-* **Breakpoint** at the entry of the calculation method (`Fibonacci.Calculate(n)`).
-* **Step Into (F11)** to inspect recursive calls.
-* **Watch** window to monitor values of variables `n` and `result`.
-* **Immediate Window** to evaluate expressions (e.g., `Fibonacci.Calculate(5)`).
+* **Точка останова** на входе в метод (`Fibonacci.Calculate(n)`).
+* **Шаг внутрь (F11)** для просмотра рекурсивных вызовов.
+* **Окно «Наблюдения» (Watch)** для отслеживания значений переменных `n` и `result`.
+* **Окно Immediate** для оценки выражений (например, `Fibonacci.Calculate(5)`).
 
-### 2. Galaxies
+### 2. Галактики
 
-**Task**: Compute distance between two galaxies given their coordinates.
+**Задача**: вычисление расстояния между двумя галактиками по их координатам.
 
-**Usage**:
+**Использование**:
 
 ```bash
-# Run the console application
+# Запуск консольного приложения
 dotnet run --project Galaxies
 ```
 
-**Example**:
+**Пример**:
 
 ```
-Enter coordinates of two galaxies (x1 y1 z1 x2 y2 z2): 0 0 0 1 2 3
-Distance = 3.742
+Введите координаты двух галактик (x1 y1 z1 x2 y2 z2): 0 0 0 1 2 3
+Расстояние = 3.742
 ```
 
-**Debugging Techniques in Visual Studio**:
+**Методы отладки в Visual Studio**:
 
-* **Breakpoint** in the `CalculateDistance` method.
-* **Step Over (F10)** to verify the algorithm without diving into every internal call.
-* **Locals and Autos** windows to track input coordinates and computed result.
-* **Output Window** combined with `Debug.WriteLine` calls for logging intermediate values.
+* **Точка останова** в методе `CalculateDistance`.
+* **Шаг с обходом (F10)** для проверки алгоритма без захода во внутренние вызовы.
+* **Окна «Локальные» (Locals) и «Автопеременные» (Autos)** для отслеживания входных координат и результата.
+* **Окно Output** вместе с вызовами `Debug.WriteLine` для логирования промежуточных значений.
 
-### 3. Letters
+### 3. Буквы
 
-**Task**: Count the number of letters in a string.
+**Задача**: подсчёт количества букв в строке.
 
-**Usage**:
+**Использование**:
 
 ```bash
-# Run the console application
+# Запуск консольного приложения
 dotnet run --project Letters
 ```
 
-**Example**:
+**Пример**:
 
 ```
-Enter a string: Hello World
-Number of letters: 10
+Введите строку: Hello World
+Количество букв: 10
 ```
 
-**Debugging Techniques in Visual Studio**:
+**Методы отладки в Visual Studio**:
 
-* **Conditional Breakpoint** (e.g., break when `input.Length > 0`).
-* **Tracepoint (Action Breakpoint)** to print values of `input` and `count` to the Output window.
-* **Immediate Window** to change the input string on the fly and re-evaluate loops.
+* **Условная точка останова** (например, при `input.Length > 0`).
+* **Трейс-точка (Action Breakpoint)** для вывода значений `input` и `count` в окно Output.
+* **Окно Immediate** для изменения строки на лету и повторной оценки циклов.
 
----
-
-*All debugging methods above are standard features of Microsoft Visual Studio 2022.*
