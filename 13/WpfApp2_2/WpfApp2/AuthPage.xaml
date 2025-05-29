@@ -1,0 +1,39 @@
+﻿<!-- AuthPage.xaml -->
+<Page x:Class="WpfApp2.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Авторизация">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Поля Логин/Пароль -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Логин" Margin="5"/>
+        <TextBox  x:Name="LoginTextBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Пароль" Margin="5"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <!-- Кнопка Вход -->
+        <Button x:Name="LoginButton"
+            Grid.Row="2" Grid.ColumnSpan="2"
+            Content="Вход"
+            Margin="5"
+            Click="LoginButton_Click"/>
+
+        <!-- Кнопка Регистрация -->
+        <Button x:Name="RegisterNavButton"
+            Grid.Row="3" Grid.ColumnSpan="2"
+            Content="Регистрация"
+            Margin="5"
+            Click="RegisterNavButton_Click"/>
+    </Grid>
+</Page>
