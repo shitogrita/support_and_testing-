@@ -15,7 +15,6 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        // Обработчик кнопки «Вход»
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text.Trim();
@@ -45,10 +44,8 @@ namespace WpfApp2
                             MessageBoxImage.Information);
         }
 
-        // Обработчик кнопки «Регистрация»
         private void RegisterNavButton_Click(object sender, RoutedEventArgs e)
         {
-            // Переходим на страницу регистрации:
             this.NavigationService?.Navigate(new RegPage());
         }
     }
