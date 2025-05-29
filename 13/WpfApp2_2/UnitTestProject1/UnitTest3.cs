@@ -14,7 +14,6 @@ namespace UnitTestProject1
         {
             Assert.IsTrue(_svc.Authenticate("ivanov", "p@ssw0rd"));
             Assert.IsTrue(_svc.Authenticate("petrov", "123456"));
-            // … остальные ваши реальные пары из БД
         }
     }
 }
