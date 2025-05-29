@@ -7,9 +7,6 @@ using System.Windows.Navigation;
 
 namespace WpfApp2
 {
-    /// <summary>
-    /// Логика взаимодействия для RegPage.xaml
-    /// </summary>
     public partial class RegPage : Page
     {
         public RegPage()
@@ -17,12 +14,8 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Обработчик кнопки «Отмена» — очищает поля и возвращает на AuthPage
-        /// </summary>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            // Очищаем все вводимые поля
             TextBoxSurname.Clear();
             TextBoxName.Clear();
             TextBoxPatronymic.Clear();
@@ -30,16 +23,11 @@ namespace WpfApp2
             PasswordBox.Clear();
             ConfirmPasswordBox.Clear();
 
-            // Переходим назад
             this.NavigationService?.GoBack();
         }
 
-        /// <summary>
-        /// Обработчик кнопки «Регистрация» — валидация и запись в БД
-        /// </summary>
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            // Читаем значения из контролов
             string surname = TextBoxSurname.Text.Trim();
             string name = TextBoxName.Text.Trim();
             string patronymic = TextBoxPatronymic.Text.Trim();
@@ -47,7 +35,6 @@ namespace WpfApp2
             string password = PasswordBox.Password;
             string confirmPassword = ConfirmPasswordBox.Password;
 
-            // 1) Проверка заполненности всех полей
             if (string.IsNullOrEmpty(surname) ||
                 string.IsNullOrEmpty(name) ||
                 string.IsNullOrEmpty(patronymic) ||
@@ -62,8 +49,6 @@ namespace WpfApp2
                     MessageBoxImage.Warning);
                 return;
             }
-
-            // 2) Проверка на уникальность логина
             using (var db = new akmetova_dbEntities())
             {
                 if (db.User.Any(u => u.Login == login))
@@ -77,7 +62,6 @@ namespace WpfApp2
                 }
             }
 
-            // 3) Проверка формата пароля: ≥6 символов, только ASCII, хотя бы одна цифра
             if (password.Length < 6 ||
                 !password.All(c => c < 128) ||
                 !password.Any(char.IsDigit))
@@ -89,8 +73,6 @@ namespace WpfApp2
                     MessageBoxImage.Warning);
                 return;
             }
-
-            // 4) Проверка совпадения паролей
             if (password != confirmPassword)
             {
                 MessageBox.Show(
@@ -101,7 +83,6 @@ namespace WpfApp2
                 return;
             }
 
-            // 5) Всё проверено — добавляем пользователя в БД
             try
             {
                 using (var db = new akmetova_dbEntities())
@@ -121,8 +102,6 @@ namespace WpfApp2
                     "Успех",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
-
-                // Возвращаемся на страницу авторизации
                 this.NavigationService?.GoBack();
             }
             catch (Exception ex)
